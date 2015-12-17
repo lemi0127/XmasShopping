@@ -1,16 +1,32 @@
-<ion-view view-title="Chats">
-  <ion-content>
-    <ion-list>
-      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in chats" type="item-text-wrap" href="#/tab/chats/{{chat.id}}">
-        <img ng-src="{{chat.face}}">
-        <h2>{{chat.name}}</h2>
-        <p>{{chat.lastText}}</p>
-        <i class="icon ion-chevron-right icon-accessory"></i>
+<ion-view view-title="Stores">
+    <ion-content class="padding">
+        <div class="bar bar-header item-input-inset">
+            <label class="item-input-wrapper">
+                <i class="icon icon-ios-search placeholder-icon"></i>
+                <input type="search" placeholder="Search by city" ng-model="data.city" value={{data.city}}>
+            </label>
+            <button class="button button-balanced" ng-click="getStores(data.city)">
+                Go
+            </button>
+        </div>
 
-        <ion-option-button class="button-assertive" ng-click="remove(chat)">
-          Delete
-        </ion-option-button>
-      </ion-item>
-    </ion-list>
-  </ion-content>
+    <div class="card">
+        <div class="list" ng-repeat="store in stores track by $index">
+            <div class="item item-divider">
+                <div class="bar bar-header bar-positive">
+                    <h2>{{store.name}}</h2>
+                </div>
+            </div>
+            <p class="item item-text-wrap ion-ios-location">
+    City: {{store.city}}
+            </p>
+            <p class="item item-text-wrap ion-ios-telephone">
+    Phone Number: {{store.phone}}
+            </p>
+            <p class="item item-text-wrap ion-ios-time">
+    Hours: {{store.hours}}
+            </p>
+        </div>
+    </div>    
+    </ion-content>
 </ion-view>

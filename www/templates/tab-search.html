@@ -12,7 +12,10 @@
       
       <ion-slide-box on-slide-changed="slideHasChanged($index)">
         <ion-slide ng-repeat="product in products track by $index">
-            <img ng-src="{{product.image}}"/>
+            <img id="searchBox" ng-src="{{product.image}}"/>
+            <h2>{{product.name}}</h2>
+            <p>SKU: {{product.sku}}</p>
+            <p>Price: ${{product.salePrice}}</p>
         </ion-slide>
       </ion-slide-box>
   </ion-content>
